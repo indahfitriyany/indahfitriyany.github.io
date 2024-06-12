@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Hasil Pemilu Tahun 2024</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="logo11.png" rel="icon">
+  <link href="logo11.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+ 
+ <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+  
+  <!-- Additional CSS & JS for map features -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="./Leaflet.GraphicScale.min.css">
+  <script src="./Leaflet.GraphicScale.min.js"></script>	
+	
+<style>
+    .header {
+		padding: 10px 20px;
+         background-color: #ffffff; /* Sesuaikan dengan warna latar belakang header */
+      width: 100%; /* Membuat header memiliki lebar penuh */
+	  box-sizing: border-box;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle-sidebar-btn {
+        order: 0; /* Menempatkan toggle di kiri */
+    }
+
+    .header-text {
+        order: 2; /* Menempatkan teks di kanan */
+        flex-grow: 0; /* Biarkan teks tidak memperluas ruang */
+        margin-left: 750px; /* Atur margin kiri agar berdekatan dengan logo */
+        font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+        white-space: nowrap; /* Tetapkan agar teks tetap dalam satu baris */
+    }
+
+    .logo {
+        order: 2; /* Menempatkan logo di kanan */
+        margin-left: 10px; /* Meletakkan logo di sebelah kanan */
+    }
+
+    .logo img {
+        max-height: 40px; /* Sesuaikan ukuran maksimum logo */
+    }
+</style>
+</head>
+
+<body>
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="header-content w-100">
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+    <span class="header-text d-none d-lg-block">Visualisasi Hasil Pemilu DPRD Tingkat Kab/Kota dan Provinsi DIY Tahun 2024</span>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="logo11.png" alt="">
+    </a>
+  </div>
+</header>
+  
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+		
+     </li><!-- End Dashboard Nav -->
+ 
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables1-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Hasil Pemilu DPRD DIY</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables1-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="BENAR PROV DAPIL.html" >
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD DIY Per Dapil</span>
+            </a>
+          </li>
+          <li>
+            <a href="BENAR PROV KEC.html" >
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD DIY Per Kecamatan</span>
+            </a> 
+          </li>
+        </ul>
+      </li><!-- End Tables1 Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Hasil Pemilu DPRD Kab/Kota</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="BENAR KABKOT DAPIL.html" class="active">
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD Kab/Kota Per Dapil</span>
+            </a>
+          </li>
+          <li>
+            <a href="BENAR KABKOT KEC.html">
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD Kab/Kota Per Kecamatan</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+  </aside><!-- End Sidebar-->
+
+
+  <main id="main" class="main">
+
+	 <section class="section Dapil">
+	 <style>
+#map {
+    height: 40vw;
+    width: 98vw; /* Atur lebar menjadi 100% dari elemen induk */
+	margin-left: 0; /* Set margin-left menjadi 0 */
+}
+
+	#navbar-iframe {
+		height:0px;
+		visibility:hidden;
+		display:none
+	}
+		.legend {
+			font:
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+			box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+			font-size: 10px; /* Atur ukuran font sesuai kebutuhan */
+			line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+			width: 1000px;
+			display: grid; 
+			grid-auto-rows: auto;
+			grid-column-gap: 5px;
+			grid-template-columns: repeat(8, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
+			gap: 25px; /* Menambahkan jarak antara kolom */
+        }
+        .legend-item {
+            margin-bottom: 0px;
+        }
+        .legend-color {
+            display: inline-block;
+			opacity: 1;
+            width: 40px;
+            height: 20px;
+            margin-right: 3px;
+            border-radius: 0px;
+			vertical-align: middle; 
+        }
+		 .column {
+        float: left;
+        width: 100%;
+    }
+    /* Bersihkan setelah setiap kolom */
+    .column:after {
+        content: "";
+        display: table;
+        clear: both;
+	}
+	.map-title {
+            position: absolute;
+            top: 100px;
+            left:1070px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+	/*INFO*/
+	 #info {
+        position: absolute;
+        top: 155px;
+        left: 1070px;
+		width: 270px;
+        font-size: 14px;
+		text-align: justify;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+	
+	.map-info p strong {
+    display: inline-block;
+    width: 400px; /* Sesuaikan lebarnya sesuai kebutuhan */
+	margin-right: 100px;/* Menambahkan jarak antara tanda ":" dan teks kecamatan */
+	}
+
+	.map-info p span {
+	display: inline-block;
+	text-align: left; /* Atur agar teks rata kiri */
+	}
+
+ #pieChart {
+            width: 100px !important;
+            height: 100px !important;
+
+	</style>
+</head>
+<body>
+	<!-- container peta -->
+	<div class="map-title">HASIL PEMILU DPRD Kab/Kota TAHUN 2024</div>
+	<div id="map"></div>
+	<div id="info" class="map-info"></div>
+	<!-- script peta -->
+	<script src="DAPIL_KABKOTA.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	
+    <script>
+		
+		// Fungsi untuk menampilkan informasi
+	function showInfo(content) {
+    var infoDiv = document.getElementById('info');
+    infoDiv.innerHTML = content;
+
+    // Menghapus canvas sebelumnya jika ada
+    var oldCanvas = document.getElementById('pieChart');
+    if (oldCanvas) {
+        oldCanvas.parentNode.removeChild(oldCanvas); 
+    }
+
+    // Menambahkan canvas baru untuk pie chart
+    var canvas = document.createElement('canvas');
+    canvas.id = 'pieChart';
+    canvas.width = 200;
+    canvas.height = 200;
+    infoDiv.appendChild(canvas);
+	}
+		var map = L.map('map',{
+        center: [-7.9000, 110.5780],
+        zoom: 9.5
+        });
+		
+		var selectedLayer = null;
+
+        function showInfo(content) {
+            document.getElementById('info').innerHTML = content;
+        }
+		
+		var carto = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+	
+		var baseMaps = {
+		"OSM": carto
+		};
+		
+	// ------------------------------------------------------------------
+	
+	
+	var geojsonLayer = L.geoJSON(jogjageojson,{
+    style: function(feature) {
+		var color;
+        switch (feature.properties.WARNA) {
+           case '#d21d25':
+                color = "#d21d25";
+                break;
+            case '#f28e7d':
+                color = "#f28e7d";
+                break;
+            case '#ffcabb':
+                color = "#ffcabb";
+                break;
+			case '#00b0df':
+				color = "#00b0df";
+				break;
+			case '#73caef':
+				color = "#73caef";
+				break;
+			case '#afe1fa':
+				color = "#afe1fa";
+				break;
+            case '#f85206':
+                color = "#f85206";
+                break;
+            case '#fba256':
+                color = "#fba256";
+                break;
+            case '#ffdeb2':
+                color = "#ffdeb2";
+                break;
+            case '#fbcc04':
+                color = "#fbcc04";
+                break;
+            case '#fce16f':
+                color = "#fce16f";
+                break;
+            case '#fff4b4':
+                color = "#fff4b4";
+                break;
+            case '#02754c':
+                color = "#02754c";
+                break;
+            case '#7cb396':
+                color = "#7cb396";
+                break;
+            case '#BDD9CA':
+                color = "#BDD9CA";
+                break;
+            case '#c48434':
+                color = "#c48434";
+                break;
+            case '#e4b686':
+                color = "#e4b686";
+                break;
+            case '#F3DEC9':
+                color = "#F3DEC9";
+                break;
+            case '#17158b':
+                color = "#17158b";
+                break;
+            case '#7e61c4':
+                color = "#7e61c4";
+                break;
+            case '#d1b4ff':
+                color = "#d1b4ff";
+                break;
+            case '#096309':
+                color = "#096309";
+                break;
+            case '#006D2C':
+                color = "#006D2C";
+                break;
+            case '#238B45':
+                color = "#238B45";
+                break;
+            default:
+                color = "#000"; // Default color
+        }
+        // Set border color to white for all cases
+        borderColor = "#ffffff";
+        return {
+            fillColor: color,
+            color: borderColor, // Set border color
+            weight: 1.5, // Set border weight
+            opacity: 1, // Set border opacity
+            fillOpacity: 1 // Set fill opacity
+        }; 
+    },
+	 
+	
+
+    onEachFeature: function (feature, layer) {
+                // Membuat konten informasi untuk ditampilkan saat fitur di-klik
+                var infoContent = '<strong>' + feature.properties.DAPIL + '</strong><br>' +
+								  '<span style="display:inline-block; margin-right:67px;">Jumlah DPT</span>: '+ feature.properties.JUMLAH_DPT.toLocaleString('id-ID') + '<br>'+
+								  '<span style="display:inline-block; margin-right: 112px;">PKB</span>: ' + feature.properties['01_PKB'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 76px;">GERINDRA</span>: ' + feature.properties['02_GERINDR'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 108px;">PDIP</span>: ' + feature.properties['03_PDIP'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 88px;">GOLKAR</span>: ' + feature.properties['04_GOLKAR'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 86px;">NASDEM</span>: ' + feature.properties['05_NASDEM'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 113px;">PKS</span>: ' + feature.properties['08_PKS'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 111px;">PAN</span>: ' + feature.properties['12_PAN'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 113px;">PPP</span>: ' + feature.properties['17_PPP'] + '<br>' +
+								  '<span style="display:inline-block; margin-right: 34px;">Tingkat Partisipasi</span>: '+ feature.properties.TINGKAT_PA + '<br>' +
+								  '<span style="display:inline-block; margin-right: 61px;">Jumlah Suara</span>: ' + feature.properties.JUMLAH_SUA.toLocaleString('id-ID') + '<br>'+
+								'<span style="display:inline-block; margin-right: 5px;">Jumlah Perolehan Kursi</span>: '+'<br>'+	
+								'<canvas id="pieChart"></canvas>';
+
+				
+				
+				
+                //piechart//
+				layer.on('click', function() {
+				showInfo(infoContent);
+				if (selectedLayer) {
+                        geojsonLayer.resetStyle(selectedLayer);
+                    }
+                    selectedLayer = layer;
+                    layer.setStyle({
+                        weight: 5,
+                        color: '#5b5b5b',
+                        fillOpacity: 1
+						});
+				// Mengambil data jumlah kursi
+				 var kursiPKB = feature.properties['KURSI_PKB'];
+                 var kursiGERINDRA = feature.properties['KURSI_GERI'];
+                 var kursiPDIP = feature.properties['KURSI_PDIP'];
+                 var kursiGOLKAR = feature.properties['KURSI_GOLK'];
+                 var kursiNASDEM = feature.properties['KURSI_NASD'];
+                 var kursiPKS = feature.properties['KURSI_PKS'];
+                 var kursiPAN = feature.properties['KURSI_PAN'];
+                 var kursiPSI = feature.properties['KURSI_PSI'];
+				 var kursiPPP = feature.properties['KURSI_PPP'];
+				 // Memanggil fungsi untuk menggambar atau memperbarui pie chart
+                    updatePieChart(kursiPKB, kursiGERINDRA, kursiPDIP, kursiGOLKAR, kursiNASDEM, kursiPKS, kursiPAN, kursiPSI, kursiPPP);
+                });
+				function updatePieChart(kursiPKB, kursiGERINDRA, kursiPDIP, kursiGOLKAR, kursiNASDEM, kursiPKS, kursiPAN, kursiPSI, kursiPPP) {
+				var ctx = document.getElementById('pieChart').getContext('2d');
+				var myPieChart = new Chart(ctx, {
+				type: 'pie',
+				data: {
+					labels: ['PKB', 'GERINDRA', 'PDIP', 'GOLKAR', 'NASDEM', 'PKS', 'PAN', 'PSI', 'PPP'],
+					datasets: [{
+					
+					data: [kursiPKB, kursiGERINDRA, kursiPDIP, kursiGOLKAR, kursiNASDEM, kursiPKS, kursiPAN, kursiPSI, kursiPPP],
+					backgroundColor: [
+                                    '#02754c',
+                                    '#c48434',
+                                    '#d21d25',
+                                    '#fbcc04',
+                                    '#17158b',
+                                    '#f85206',
+                                    '#00b0df',
+									'#D62B10',
+                                    '#096309'
+									
+                                ],
+								borderColor: [
+                                '#02754c',
+                                '#c48434',
+                                '#d21d25',
+                                '#fbcc04',
+                                '#17158b',
+                                '#f85206',
+                                '#00b0df',
+								'#D62B10',
+                                '#096309'
+								
+                            ],
+                            borderWidth: 1
+
+            }]
+        },
+         options: {
+                            responsive: false,
+                            maintainAspectRatio: false, // Menonaktifkan aspek rasio agar ukuran dapat diatur sesuai keinginan
+                            plugins: {
+									 legend: {
+                                display: false // Menonaktifkan legenda
+                            }
+                            }
+                        }
+                    }); 
+}
+
+				// Menonjolkan wilayah saat hover
+                layer.on({
+                    mouseover: function() {
+                        layer.setStyle({
+                            "weight": 7, // Mengatur ketebalan garis
+                        });
+                    },
+                    mouseout: function() {
+                        if (layer !== selectedLayer) {
+                            layer.setStyle({
+                                "weight": 1.5, // Mengembalikan ketebalan garis ke nilai awal
+                            });
+                        }
+                    }
+                });
+            }
+        }).addTo(map);
+
+		// Fungsi untuk menampilkan informasi di pojok kiri atas halaman web
+        function showInfo(content) {
+        // Menyisipkan konten informasi ke dalam elemen dengan id "info"
+        document.getElementById('info').innerHTML = content;
+           // Menyisipkan konten informasi ke dalam elemen dengan id "info"
+		var infoElement = document.getElementById('info');
+		if (content) {
+			infoElement.innerHTML = content;
+		} else {
+			infoElement.innerHTML = '<strong>Pilih Lokasi</strong>';
+		}
+		   }
+		// Memanggil fungsi showInfo untuk menampilkan pesan "Pilih Lokasi" saat halaman dimuat pertama kali
+		showInfo(null);
+
+  var legend = L.control({position: 'bottomleft'});
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = 
+        '<div class="column">' +
+            '<strong>PKB</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #02754c;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #7cb396;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #BDD9CA;"></span> RENDAH</div>' +
+        '</div>' +
+        '<div class="column">' +
+            '<strong>GERINDRA</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #c48434;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #e4b686;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #F3DEC9;"></span> RENDAH</div>' +
+        '</div>'+
+        '<div class="column">' +
+            '<strong>PDIP</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #d21d25;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #f28e7d;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #ffcabb;"></span> RENDAH</div>' +
+        '</div>' +
+        '<div class="column">' +
+            '<strong>GOLKAR</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #fbcc04;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #fce16f;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #fff4b4;"></span> RENDAH</div>' +
+        '</div>'+
+		'<div class="column">' +
+            '<strong>NASDEM</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #17158b;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #7e61c4;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #d1b4ff;"></span> RENDAH</div>' +
+        '</div>'+
+		'<div class="column">' +
+            '<strong>PKS</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #f85206;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #fba256;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #ffdeb2;"></span> RENDAH</div>' +
+        '</div>'+
+		'<div class="column">' +
+            '<strong>PAN</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #00b0df;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #73caef;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #afe1fa;"></span> RENDAH</div>' +
+        '</div>'+
+		'<div class="column">' +
+            '<strong>PPP</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #096309;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #006D2C;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #238B45;"></span> RENDAH</div>' +
+        '</div>';
+    return div;
+	};
+	legend.addTo(map);
+    </script>
+
+    </section>
+
+  </main><!-- End #main -->
+
+  
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="DAPIL_KABKOTA.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+	<!-- script peta -->
+	<script src="DAPIL_KABKOTA.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  
+</body>
+
+</html>

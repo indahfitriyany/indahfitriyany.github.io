@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Hasil Pemilu DPRD Tingkat Kab/Kota dan Provinsi DIY Tahun 2024</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="logo11.png" rel="icon">
+  <link href="logo11.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<style>
+    .header {
+		padding: 10px 20px;
+         background-color: #ffffff; /* Sesuaikan dengan warna latar belakang header */
+      width: 100%; /* Membuat header memiliki lebar penuh */
+	  box-sizing: border-box;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .toggle-sidebar-btn {
+        order: 0; /* Menempatkan toggle di kiri */
+    }
+
+    .header-text {
+        order: 2; /* Menempatkan teks di kanan */
+        flex-grow: 0; /* Biarkan teks tidak memperluas ruang */
+        margin-left: 750px; /* Atur margin kiri agar berdekatan dengan logo */
+        font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+        white-space: nowrap; /* Tetapkan agar teks tetap dalam satu baris */
+    }
+
+    .logo {
+        order: 2; /* Menempatkan logo di kanan */
+        margin-left: 10px; /* Meletakkan logo di sebelah kanan */
+    }
+
+    .logo img {
+        max-height: 40px; /* Sesuaikan ukuran maksimum logo */
+    }
+</style>
+</head>
+<body>
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="header-content w-100">
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+    <span class="header-text d-none d-lg-block">Visualisasi Hasil Pemilu DPRD Tingkat Kab/Kota dan Provinsi DIY Tahun 2024</span>
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="logo11.png" alt="">
+    </a>
+  </div>
+</header>
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables1-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Hasil Pemilu DPRD DIY</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables1-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="BENAR PROV DAPIL.html">
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD DIY Per Dapil</span>
+            </a>
+          </li>
+          <li>
+            <a href="BENAR PROV KEC.html">
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD DIY Per Kecamatan</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables1 Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Hasil Pemilu DPRD Kab/Kota</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="BENAR KABKOT DAPIL.html">
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD Kab/Kota Per Dapil</span>
+            </a>
+          </li>
+          <li>
+            <a href="BENAR KABKOT KEC.html">
+              <i class="bi bi-circle"></i><span>Hasil Pemilu DPRD Kab/Kota Per Kecamatan DPRD Kab/Kota</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Tables Nav -->
+
+  </aside><!-- End Sidebar-->
+
+ <!-- ======= Main Section ======= -->
+  <main id="main" class="main">
+    <div class="content">
+      <h1>Pemilu DPRD DIY 2024</h1>
+      <p>Selamat datang di Dashboard Pemilu DPRD DIY 2024</p>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Informasi Pemilu</h5>
+	<p class="card-text">
+    Selamat datang di Dashboard Hasil Pemilu DPRD Tingkat Kabupaten/Kota dan Provinsi Daerah Istimewa Yogyakarta (DIY) Tahun 2024. Di sini, kami menyajikan visualisasi data hasil pemilu yang memungkinkan Anda untuk memahami distribusi suara dan perolehan kursi oleh masing-masing partai politik di wilayah DIY.
+	</p>
+	<p class="card-text">
+    Pemilu 2024 di DIY merupakan momen penting dalam menentukan arah kebijakan daerah selama lima tahun ke depan. Pemilu kali ini diikuti oleh berbagai partai politik yang bersaing untuk mendapatkan kursi di Dewan Perwakilan Rakyat Daerah (DPRD) baik di tingkat kabupaten/kota maupun provinsi. Dashboard ini dirancang untuk memberikan informasi yang transparan dan mudah dipahami mengenai hasil pemilu.
+	</p>
+
+        </div>
+      </div>
+    </div><!-- End Konten -->
+  </main><!-- End Main -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
