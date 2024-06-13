@@ -177,11 +177,11 @@
 			line-height: 1.5;
             border: 1px solid #ccc;
             border-radius: 5px;
-			width: 1000px;
+			width: 1150px;
 			display: grid; 
 			grid-auto-rows: auto;
 			grid-column-gap: 5px;
-			grid-template-columns: repeat(8, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
+			grid-template-columns: repeat(9, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
 			gap: 25px; /* Menambahkan jarak antara kolom */
         }
         .legend-item {
@@ -555,6 +555,12 @@ legend.onAdd = function (map) {
             '<div class="legend-item"><span class="legend-color" style="background-color: #f85206;"></span> TINGGI</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #fba256;"></span> SEDANG</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #ffdeb2;"></span> RENDAH</div>' +
+        '</div>'+
+	    '<div class="column">' +
+            '<strong>DEMOKRAT</strong><br>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #1c448b;"></span> TINGGI</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #709cc6;"></span> SEDANG</div>' +
+            '<div class="legend-item"><span class="legend-color" style="background-color: #B5CBE1;"></span> RENDAH</div>' +
         '</div>'+
 		'<div class="column">' +
             '<strong>PAN</strong><br>' +
