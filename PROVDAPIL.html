@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Hasil Pemilu Tahun 2024</title>
   <meta content="" name="description">
@@ -49,12 +49,12 @@
   
   <link rel="stylesheet" type="text/css" href="./Leaflet.GraphicScale.min.css">
   <script src="./Leaflet.GraphicScale.min.js"></script>	
-	  <style>
+	 <style>
     .header {
-	padding: 10px 20px;
-        background-color: #ffffff; /* Sesuaikan dengan warna latar belakang header */
-      	width: 100%; /* Membuat header memiliki lebar penuh */
-	box-sizing: border-box;
+		padding: 10px 20px;
+         background-color: #ffffff; /* Sesuaikan dengan warna latar belakang header */
+      width: 100%; /* Membuat header memiliki lebar penuh */
+	  box-sizing: border-box;
     }
 
     .header-content {
@@ -83,7 +83,6 @@
         max-height: 40px; /* Sesuaikan ukuran maksimum logo */
     }
 </style>
-
 
 </head>
 
@@ -166,7 +165,7 @@
 		display:none
 	}
 		.legend {
-		font:
+			font:
             position: absolute;
             bottom: 10px;
             left: 10px;
@@ -177,11 +176,11 @@
 			line-height: 1.5;
             border: 1px solid #ccc;
             border-radius: 5px;
-			width: 1150px;
+			width: 130px;
 			display: grid; 
 			grid-auto-rows: auto;
 			grid-column-gap: 5px;
-			grid-template-columns: repeat(9, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
+			grid-template-columns: repeat(1, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
 			gap: 25px; /* Menambahkan jarak antara kolom */
         }
         .legend-item {
@@ -208,8 +207,8 @@
 	}
 	.map-title {
             position: absolute;
-            top: 100px;
-            left:1070px;
+            top: 85px;
+            left:900px;
             font-size: 20px;
             font-weight: bold;
             color: #333;
@@ -221,11 +220,11 @@
 	/*INFO*/
 	 #info {
         position: absolute;
-        top: 155px;
-        left: 1070px;
-	width: 300px;
+        top: 140px;
+        left: 1015px;
+		width: 270px;
         font-size: 14px;
-	text-align: justify;
+		text-align: justify;
         background-color: rgba(255, 255, 255, 0.8);
         padding: 5px;
         border-radius: 5px;
@@ -246,6 +245,18 @@
  #pieChart {
             width: 100px !important;
             height: 100px !important;
+
+ #infoTable {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    #infoTable, #infoTable th, #infoTable td {
+        border: 1px solid black;
+    }
+    #infoTable th, #infoTable td {
+        padding: 5px;
+        text-align: left;
+    }
 </style>
 </head>
 <body>
@@ -516,64 +527,17 @@
 		// Memanggil fungsi showInfo untuk menampilkan pesan "Pilih Lokasi" saat halaman dimuat pertama kali
 		showInfo(null);
 
-  var legend = L.control({position: 'bottomleft'});
+   var legend = L.control({position: 'bottomleft'});
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'legend');
     div.innerHTML = 
-        '<div class="column">' +
-            '<strong>PKB</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #02754c;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #7cb396;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #BDD9CA;"></span> RENDAH</div>' +
-        '</div>' +
-        '<div class="column">' +
-            '<strong>GERINDRA</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #c48434;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #e4b686;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #F3DEC9;"></span> RENDAH</div>' +
-        '</div>'+
+       
         '<div class="column">' +
             '<strong>PDIP</strong><br>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #d21d25;"></span> TINGGI</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #f28e7d;"></span> SEDANG</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #ffcabb;"></span> RENDAH</div>' +
-        '</div>' +
-        '<div class="column">' +
-            '<strong>GOLKAR</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fbcc04;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fce16f;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fff4b4;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>NASDEM</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #17158b;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #7e61c4;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #d1b4ff;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>PKS</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #f85206;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fba256;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #ffdeb2;"></span> RENDAH</div>' +
-        '</div>'+
-	    '<div class="column">' +
-            '<strong>DEMOKRAT</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #1c448b;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #709cc6;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #B5CBE1;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>PAN</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #00b0df;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #73caef;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #afe1fa;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>PPP</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #096309;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #006D2C;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #238B45;"></span> RENDAH</div>' +
-        '</div>';
+        '</div>' ;
     return div;
 	};
 	legend.addTo(map);
