@@ -69,8 +69,7 @@
 
     .header-text {
         order: 2; /* Menempatkan teks di kanan */
-        flex-grow: 0; /* Biarkan teks tidak memperluas ruang */
-        margin-left: 750px; /* Atur margin kiri agar berdekatan dengan logo */
+        margin-left: 600px; /* Geser ke kanan menggunakan margin auto */
         font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
         white-space: nowrap; /* Tetapkan agar teks tetap dalam satu baris */
     }
@@ -176,11 +175,11 @@
 		line-height: 1.5;
             border: 1px solid #ccc;
             border-radius: 5px;
-			width: 1150px;
+			width: 385px;
 			display: grid; 
 			grid-auto-rows: auto;
 			grid-column-gap: 5px;
-			grid-template-columns: repeat(9, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
+			grid-template-columns: repeat(3, 1fr); /* Membagi legend menjadi 4 kolom dengan lebar yang sama */
 			gap: 25px; /* Menambahkan jarak antara kolom */
         }
         .legend-item {
@@ -207,8 +206,8 @@
 	}
 	.map-title {
             position: absolute;
-            top: 100px;
-            left:1070px;
+            top: 85px;
+            left: 930px;
             font-size: 20px;
             font-weight: bold;
             color: #333;
@@ -220,8 +219,8 @@
 	/*INFO*/
 	 #info {
         position: absolute;
-        top: 155px;
-        left: 1070px;
+        top: 140px;
+        left: 1015px;
 	width: 300px;
         font-size: 14px;
 	text-align: justify;
@@ -530,52 +529,16 @@ legend.onAdd = function (map) {
             '<div class="legend-item"><span class="legend-color" style="background-color: #BDD9CA;"></span> RENDAH</div>' +
         '</div>' +
         '<div class="column">' +
-            '<strong>GERINDRA</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #c48434;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #e4b686;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #F3DEC9;"></span> RENDAH</div>' +
-        '</div>'+
-        '<div class="column">' +
             '<strong>PDIP</strong><br>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #d21d25;"></span> TINGGI</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #f28e7d;"></span> SEDANG</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #ffcabb;"></span> RENDAH</div>' +
         '</div>' +
-        '<div class="column">' +
-            '<strong>GOLKAR</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fbcc04;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fce16f;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fff4b4;"></span> RENDAH</div>' +
-        '</div>'+
 		'<div class="column">' +
             '<strong>NASDEM</strong><br>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #17158b;"></span> TINGGI</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #7e61c4;"></span> SEDANG</div>' +
             '<div class="legend-item"><span class="legend-color" style="background-color: #d1b4ff;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>PKS</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #f85206;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #fba256;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #ffdeb2;"></span> RENDAH</div>' +
-        '</div>'+
-	    '<div class="column">' +
-            '<strong>DEMOKRAT</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #1c448b;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #709cc6;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #B5CBE1;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>PAN</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #00b0df;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #73caef;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #afe1fa;"></span> RENDAH</div>' +
-        '</div>'+
-		'<div class="column">' +
-            '<strong>PPP</strong><br>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #096309;"></span> TINGGI</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #006D2C;"></span> SEDANG</div>' +
-            '<div class="legend-item"><span class="legend-color" style="background-color: #238B45;"></span> RENDAH</div>' +
         '</div>';
     return div;
 	};
